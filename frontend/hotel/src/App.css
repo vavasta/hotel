@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* .header {
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}
+.signin {
+  border: 2px solid black;
+  border-radius: 20%;
+  width: 6vw;
+  height: 4vh;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  font-family: "Courier New", Courier, monospace;
+}
+.logout {
+  margin-left: 10px;
+  border: 2px solid black;
+  border-radius: 20%;
+  width: 6vw;
+  height: 4vh;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  font-family: "Courier New", Courier, monospace;
+}
+.signup {
+  margin-left: 10px;
+  border: 2px solid black;
+  border-radius: 20%;
+  width: 6vw;
+  height: 4vh;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+ .lable {
+  margin-right: 750px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 30px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.halls {
+  background-color: lightgrey;
+  max-width: 1280px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+} */
+/* .addhall {
+  width: 100%;
+  height: 600px;
+  margin-top: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 30px;
+}
+.hall {
+  width: 100%;
+  height: 600px;
+
+  margin-top: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 30px;
+} */
+.addhallbutton {
+  width: 100%;
+  height: 100px;
+}
+/* .roomnameinput {
+  margin-left: 20px;
+}
+.roomdescription {
+  margin-left: 20px;
+}
+.halldeletebutton {
+  margin-left: 1230px;
+}
+.loadedimg {
+  max-width: 1220px;
+} */
+/* .signin {
+  border: 2px solid black;
+  border-radius: 20%;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  font-family: "Courier New", Courier, monospace;
+} */
+.card-panel {
+  z-index: 1;
+  overflow-wrap: break-word;
+}
+.card {
+  color: black;
+  position: relative;
+  z-index: 3;
+}
+.activator {
+  width: 100%;
+  height: 250px;
+  border: 2px solid #4db6ac;
+}
+.deletehallbutton {
+  width: 100%;
+  height: 50px;
+}
+.bookit {
+  width: 50%;
+  height: 50px;
+}
+.checkbox {
+  border: 1px solid black;
+}
+.date {
+  width: 200px;
+  height: 200px;
+}
+.bookitcontainer {
+  display: flex;
+  justify-content: space-between;
+}
