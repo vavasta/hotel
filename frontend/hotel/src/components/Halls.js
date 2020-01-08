@@ -60,9 +60,11 @@ class Halls extends React.Component {
     this.props.addTicketThunk(value);
   };
   render() {
+    console.log("this.props.user.user.isAdmin", this.props.user.user.isAdmin);
     return (
-      <div className="container ">
-        {localStorage.getItem("isAdmin") === "true" ? (
+      <div className="container">
+        {this.props.user.user.isAdmin === true ||
+        this.props.user.user.isAdmin === "true" ? (
           <div className="card-panel hoverable ">
             <img className="activator" src={this.state.imageUrl} />
             <p>Room Name</p>

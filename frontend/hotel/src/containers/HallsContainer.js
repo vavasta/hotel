@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Halls from "../components/Halls";
 import { connect } from "react-redux";
 import {
@@ -12,15 +12,21 @@ import {
   addTicketThunk,
   updateTicketThunk,
   deleteTicketThunk
-} from "../reducers/ticketsReducer";
+} from "../reducers/ticketsReducer"; 
 
-const HallsContainer = props => {
-  return <Halls {...props} />;
+const HallsContainer = props => { 
+
+  useEffect(() => {
+    props.getHallsThunk();
+  }, []);
+  return <Halls  {...props} />;
 };
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state, props) => { 
   return {
-    halls: state.halls
+    halls: state.halls,
+    tickets: state.tickets,
+    user: state.user
   };
 };
 

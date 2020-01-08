@@ -28,7 +28,9 @@ const mapStateToProps = state => {
   console.log("PROPSAPP", state);
   return {
     halls: state.halls,
-    tickets: state.tickets
+    tickets: state.tickets,
+    user: state.user,
+    error: state.error
   };
 };
 

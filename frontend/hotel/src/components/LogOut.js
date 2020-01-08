@@ -6,20 +6,15 @@ class LogOut extends React.Component {
     localStorage.removeItem("isAdmin");
     window.location.reload();
   };
-  currentUser = localStorage.getItem("token");
   render() {
     return (
       <div>
-        {this.currentUser ? (
-          <button
-            className="waves-effect waves-light btn"
-            onClick={this.LogOutFunction}
-          >
-            LogOut
-          </button>
-        ) : (
-          ""
-        )}
+        <button
+          className="waves-effect waves-light btn"
+          onClick={this.LogOutFunction}
+        >
+          LogOut
+        </button>
       </div>
     );
   }

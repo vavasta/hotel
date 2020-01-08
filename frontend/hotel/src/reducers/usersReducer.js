@@ -1,7 +1,7 @@
 import { requestHttp } from "../api/api";
 import axios from "axios";
 const initialState = {
-  users: null
+  user: false
 };
 
 //REDUCER///
@@ -11,14 +11,21 @@ const usersReducer = (state = initialState, action) => {
     case "SIGN-UP":
       return {
         ...state,
-        users: action.payload
+        user: action.payload
       };
 
-    case "SIGN-IN":
+    case "SIGN-IN": {
       return {
-        ...state,
-        users: action.payload
+        user: action.payload
       };
+    }
+    case "RE-LOGIN": {
+      return {
+        user: action.payload
+      };
+    }
+    case "SIGN-OUT":
+      return initialState;
     default:
       return state;
   }
@@ -28,7 +35,8 @@ const usersReducer = (state = initialState, action) => {
 
 const signUp = res => ({ type: "SIGN-UP", payload: res });
 const signIn = res => ({ type: "SIGN-IN", payload: res });
-
+ 
+export const reLogin = res => ({ type: "RE-LOGIN", payload: res });
 //USERS THUNK
 
 export const signUpThunk = (
@@ -45,16 +53,10 @@ export const signUpThunk = (
   console.log("");
 };
 export const signInThunk = (signInEmail, signInPassword) => async dispatch => {
-  const email = signInEmail;
-  const password = signInPassword;
-  // const adminsid = "5e01e6c01217a3347c0fe7ae";
-  const isAdmin = true;
-  const res = await requestHttp.signIn(email, password, isAdmin).then(res => {
-    dispatch(signIn(res.data.token));
-    console.log("STORAGE", res.data);
-    localStorage.setItem("isAdmin", res.data.isAdmin);
-    localStorage.setItem("token", res.data.token);
-    localStorage.setItem("userId", res.data._id);
-  });
+  const res = await requestHttp.signIn(signInEmail, signInPassword, true);
+  dispatch(signIn(res.data));
+  localStorage.setItem("isAdmin", res.data.isAdmin);
+  localStorage.setItem("token", res.data.token);
+  localStorage.setItem("userId", res.data._id);
 };
 export default usersReducer;

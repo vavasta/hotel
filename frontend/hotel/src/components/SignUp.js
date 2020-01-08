@@ -32,16 +32,14 @@ class SignUp extends React.Component {
   render() {
     return (
       <div>
-        {this.currentUser ? (
-          ""
-        ) : (
+      
           <button
             className="waves-effect waves-light btn"
             onClick={this.addSignUpForm}
           >
             SignUp
           </button>
-        )}
+      
         {this.state.SignUpFormIsOpen === true ? (
           <SignUpForm
             ChangeEmailInput={this.onChangeEmailInput}

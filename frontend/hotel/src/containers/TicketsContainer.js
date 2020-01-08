@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Tickets from "../components/Tickets";
 import {
@@ -6,16 +6,14 @@ import {
   getTicketsParamsThunk,
   addTicketThunk,
   updateTicketThunk,
-  deleteTicketThunk
-} from "../reducers/ticketsReducer"; 
+  deleteTicketThunk,
+  clearTicket
+} from "../reducers/ticketsReducer";
 
 const TicketsContainer = props => {
-
-  useEffect(()=>{
-      props.getTicketsThunk()
-  },[])
-
-
+  useEffect(() => {
+    props.getTicketsThunk();
+  }, []);
 
   return <Tickets {...props} />;
 };
@@ -23,7 +21,8 @@ const TicketsContainer = props => {
 const mapStateToProps = (state, props) => {
   console.log("STATE", state);
   return {
-    tickets: state.tickets
+    tickets: state.tickets,
+    user: state.user
   };
 };
 
@@ -32,7 +31,8 @@ const mapDispatchToProps = {
   getTicketsParamsThunk,
   addTicketThunk,
   updateTicketThunk,
-  deleteTicketThunk
+  deleteTicketThunk,
+  clearTicket
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TicketsContainer);

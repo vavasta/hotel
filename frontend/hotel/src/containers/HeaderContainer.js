@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import LogOut from "../components/LogOut";
 import { withRouter } from "react-router-dom";
-import { compose } from "redux";
 import {
   getHallsThunk,
   addHallThunk,
   deleteHallThunk
 } from "../reducers/hallReducer";
-import { signInThunk, signUpThunk } from "../reducers/usersReducer";
+import { getTicketsThunk } from "../reducers/ticketsReducer";
+import { signInThunk, signUpThunk, reLogin } from "../reducers/usersReducer";
 
 const HeaderContainer = props => {
-  const currentUser = localStorage.getItem("token");
-  console.log(currentUser);
+  useEffect(() => {
+    props.getTicketsThunk();
+    const token = localStorage.getItem("token");
+    const _id = localStorage.getItem("userId");
+    const isAdmin = localStorage.getItem("isAdmin");
+    const user = { token, _id, isAdmin };
+    props.reLogin(user);
+  }, []);
+  const currentUser = props.user.user;
+  console.log("currentUser", currentUser);
   return (
     <nav>
       <div className="container nav-wrapper">
@@ -25,22 +33,27 @@ const HeaderContainer = props => {
           <li>
             <a onClick={() => props.history.push("/tickets")}>Tickets</a>
           </li>
-          <li>
-            <a className="dropdown-trigger" data-target="dropdown1">
-              {" "}
-              <SignIn {...props} />
-            </a>
-          </li>
-          <li>
-            <a>
-              <SignUp {...props} />
-            </a>
-          </li>
-          <li>
-            <a>
-              <LogOut />
-            </a>
-          </li>
+          {currentUser && currentUser.token ? (
+            <li>
+              <a>
+                <LogOut />
+              </a>
+            </li>
+          ) : (
+            <>
+              <li>
+                <a className="dropdown-trigger" data-target="dropdown1">
+                  {" "}
+                  <SignIn {...props} />
+                </a>
+              </li>
+              <li>
+                <a>
+                  <SignUp {...props} />
+                </a>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </nav>
@@ -48,7 +61,9 @@ const HeaderContainer = props => {
 };
 
 const mapStateToProps = (state, props) => {
-  return {};
+  return {
+    user: state.user
+  };
 };
 
 const mapDispatchToProps = {
@@ -56,7 +71,9 @@ const mapDispatchToProps = {
   addHallThunk,
   deleteHallThunk,
   signInThunk,
-  signUpThunk
+  signUpThunk,
+  getTicketsThunk,
+  reLogin
 };
 export default withRouter(
   connect(mapStateToProps, mapDispatchToProps)(HeaderContainer)

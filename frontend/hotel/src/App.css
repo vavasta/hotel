@@ -114,19 +114,43 @@ body {
 }
 .activator {
   width: 100%;
-  height: 250px;
+  height: 350px;
   border: 2px solid #4db6ac;
+  z-index: 2;
+  position: static;
 }
 .deletehallbutton {
+  /* height: 50px;
+  /* position: absolute; */
   width: 100%;
-  height: 50px;
+  /* left: 60%; */
+  /* margin-left: 600px; */
+}
+.edithallbutton {
+  height: 30px;
+  /* position: absolute; */
+  width: 100%;
+  /* left: 60%; */
+
+  /* margin-left: 600px; */
 }
 .bookit {
   width: 50%;
   height: 50px;
 }
 .checkbox {
-  border: 1px solid black;
+  border: 5px solid black;
+  opacity: 5;
+}
+[type="checkbox"]:not(:checked) {
+  opacity: 5;
+  position: static;
+  pointer-events: all;
+}
+[type="checkbox"]:checked {
+  opacity: 5;
+  position: static;
+  pointer-events: all;
 }
 .date {
   width: 200px;
@@ -135,4 +159,44 @@ body {
 .bookitcontainer {
   display: flex;
   justify-content: space-between;
+}
+.cardticket {
+  height: 100%;
+}
+.deletedescription {
+  margin-top: 30px;
+}
+.title {
+  font-size: 30px;
+}
+.ticket-center-container {
+  display: flex;
+  justify-content: space-between;
+}
+.editbuttons {
+  display: flex;
+  justify-content: space-between;
+}
+.ant-calendar-picker-input.ant-input {
+  height: 100%;
+}
+.dropdown-trigger {
+  z-index: 10;
+}
+.signInForm {
+  position: absolute;
+  z-index: 5;
+  background-color: white;
+  border: #ee6e73 5px solid;
+  border-radius: 1%;
+}
+.signInForm p {
+  margin-left: 5px;
+}
+.signInForm input {
+  margin-left: 2px;
+  width: 99%;
+}
+.signInForm button {
+  margin-left: 5px;
 }

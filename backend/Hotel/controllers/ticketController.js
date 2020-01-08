@@ -8,7 +8,7 @@ module.exports = {
     console.log(" req.body.hall_id", req.body.hall_id);
     jwt.verify(req.token, process.env.SECRET, (err, authData) => {
       if (err) {
-        return res.status(403).send("No authority");
+        return res.status(200).send("No authority");
       }
       const decodedJwt = jwt.decode(req.token, { complete: true });
       const ticket = new Ticket({

@@ -7,6 +7,7 @@ const Tickets = props => {
     <div>
       {props.tickets.tickets.map(ticket => (
         <Ticket
+          {...props}
           updateTicketThunk={props.updateTicketThunk}
           deleteTicketThunk={props.deleteTicketThunk}
           title={ticket.title}
